@@ -1,18 +1,28 @@
+using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace ManaCircle.Scripts.Utility
 {
-    public class Singleton<T> : MonoBehaviour where T : MonoBehaviour 
+    public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour 
     {
-        private T _instance;
+        private static T _instance;
 
-        public T instance
+        public static T Instance
         {
             get
             {
                 if (_instance == null)
                 {
-                    _instance = Object.FindObjectOfType<T>();
+                    try
+                    {
+                        _instance = FindObjectOfType<T>();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        throw;
+                    }
                 }
                 return _instance;
             }

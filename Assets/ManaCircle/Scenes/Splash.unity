@@ -266,6 +266,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314242433}
+  - component: {fileID: 314242434}
+  - component: {fileID: 314242435}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -288,6 +290,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314242434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314242432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 110614d4ba457c0428ab8dc811a61575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minimumDelaySecond: 1
+  targetScene: TestScene
+--- !u!114 &314242435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314242432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3634a9ced8da8449363bff33c2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &633868079
 GameObject:
   m_ObjectHideFlags: 0
