@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
-namespace ManaCircle.Scripts.Utility
+namespace Assets.ManaCircle.Scripts.Utility
 {
     public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour 
     {

@@ -1,17 +1,21 @@
 using System;
-using ManaCircle.Scripts.Utility;
+using Assets.ManaCircle.Scripts.Utility;
 using UniRx;
 using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ManaCircle.Scripts.Systems
+namespace Assets.ManaCircle.Scripts.Systems.Global
 {
     public class GlobalInputBinder : Singleton<GlobalInputBinder>
     {
+        public IObservable<float> CreateGetAxisStream(string axis)
+        {
+            return this.UpdateAsObservable().Select(_ => Input.GetAxis(axis));
+        }
         public IObservable<Unit> CreateGetKeyStream(KeyCode key)
         {
-           return this.UpdateAsObservable().Where(_ => Input.GetKey(key));
+            return this.UpdateAsObservable().Where(_ => Input.GetKey(key));
         }
         public IObservable<Unit> CreateGetKeyDownStream(KeyCode key)
         {
@@ -33,9 +37,13 @@ namespace ManaCircle.Scripts.Systems
         {
             return this.UpdateAsObservable().Where(_ => Input.GetMouseButtonUp(btn));
         }
+        public void CreateGetEventAxisStream(string axis, UnityEvent e)
+        {
+            this.UpdateAsObservable().Select(_ => Input.GetAxis(axis)).Subscribe(_ => e.Invoke());
+        }
         public void CreateEventKeyStream(KeyCode key, UnityEvent e)
         {
-            this.UpdateAsObservable().Where(_ => Input.GetKey(key)).Subscribe(_=> e.Invoke());
+            this.UpdateAsObservable().Where(_ => Input.GetKey(key)).Subscribe(_ => e.Invoke());
         }
         public void CreateEventKeyDownStream(KeyCode key, UnityEvent e)
         {

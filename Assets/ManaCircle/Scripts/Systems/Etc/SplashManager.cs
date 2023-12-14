@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
-using System.Threading.Tasks;
+using Assets.ManaCircle.Scripts.Systems.Global;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace ManaCircle.Scripts.Systems
+namespace Assets.ManaCircle.Scripts.Systems.Etc
 {
     public class SplashManager : MonoBehaviour
     {
